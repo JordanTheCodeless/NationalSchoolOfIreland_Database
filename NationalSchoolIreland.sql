@@ -18,6 +18,18 @@ USE `primaryschool`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Temporary view structure for view `all_parents`
+--
+
+DROP TABLE IF EXISTS `all_parents`;
+/*!50001 DROP VIEW IF EXISTS `all_parents`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `all_parents` AS SELECT 
+ 1 AS `parentID`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `employees`
 --
 
@@ -190,7 +202,7 @@ CREATE TABLE `Parent` (
   `parentLastName` varchar(30) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
-  `contact` varchar(50) DEFAULT NULL,
+  `contact` varchar(50) NOT NULL,
   PRIMARY KEY (`parentID`),
   UNIQUE KEY `parentId_UNIQUE` (`parentID`),
   UNIQUE KEY `email_UNIQUE` (`email`)
@@ -203,9 +215,22 @@ CREATE TABLE `Parent` (
 
 LOCK TABLES `Parent` WRITE;
 /*!40000 ALTER TABLE `Parent` DISABLE KEYS */;
-INSERT INTO `Parent` VALUES (1,'Nessi','Elwill','nelwill0@yelp.com','F','334-497-5105'),(2,'Huberto','Bront','hbront1@is.gd','M','493-476-7856'),(3,'Jamesy','Russan','jrussan2@eventbrite.com','M','960-569-3399'),(4,'Gibb','MacLese','gmaclese3@ovh.net','M','115-449-9065'),(5,'Geri','Casaro','gcasaro4@stumbleupon.com','F','333-107-5931'),(6,'Karry','Wardle','kwardle5@addthis.com','F','121-125-8845'),(7,'Brietta','MacVicar','bmacvicar6@sciencedirect.com','F','408-333-5554'),(8,'Steffane','Kelle','skelle7@163.com','F','697-927-7784'),(9,'Sissy','Weller','sweller8@ezinearticles.com','F','682-171-9459'),(10,'Phillipp','Atley','patley9@psu.edu','M','213-476-9951'),(11,'Mavis','Mixworthy','mmixworthya@irs.gov','F','966-453-9661'),(12,'Haven','Matresse','hmatresseb@ibm.com','M','518-534-5972'),(13,'Alvan','Gouldstraw','agouldstrawc@engadget.com','M','464-582-0818'),(14,'Casandra','Agutter','cagutterd@de.vu','F','964-505-0714'),(15,'Gabie','Boniface','gbonifacee@ovh.net','F','484-770-0924'),(16,'Corly','Figgins','cfigginsf@smugmug.com','F','530-567-9324'),(17,'Matthus','Bobasch','mbobaschg@cocolog-nifty.com','M','291-237-0538'),(18,'Danyette','Storrs','dstorrsh@istockphoto.com','F','623-952-1985'),(19,'Horatio','Durrand','hdurrandi@hugedomains.com','M','261-568-9086'),(20,'Randolf','Senecaut','rsenecautj@networkadvertising.org','M','960-604-3162'),(21,'Abelard','Lack','alackk@who.int','M','320-385-5236'),(22,'Gardy','Paunsford','gpaunsfordl@biglobe.ne.jp','M','703-626-1082'),(23,'Staford','Hulles','shullesm@businessweek.com','M','312-305-7851'),(24,'Mathias','De Leek','mdeleekn@163.com','M','151-765-8077'),(25,'Shannah','Cattroll','scattrollo@g.co','F','672-306-6719'),(26,'Haze','Mungin','hmunginp@blogtalkradio.com','M','211-697-0977'),(27,'Raeann','Dabinett','rdabinettq@livejournal.com','F','223-356-8594'),(28,'Shawna','Valasek','svalasekr@home.pl','F','618-595-3230'),(29,'Dorene','Houlison','dhoulisons@senate.gov','F','758-747-6264'),(30,'Chelsae','Quinet','cquinett@google.ca','F','129-879-4776'),(31,'Kliment','Brager','kbrageru@friendfeed.com','M','474-227-5124'),(32,'Tonia','Barehead','tbareheadv@bloomberg.com','F','935-148-6558'),(33,'Yule','Jent','yjentw@delicious.com','M','671-676-2464'),(34,'Suzy','Bettam','sbettamx@e-recht24.de','F','596-272-1212'),(35,'Montague','Clues','mcluesy@china.com.cn','M','619-930-5333'),(36,'Jeannine','Joyce','jjoycez@weebly.com','F','825-488-2563'),(37,'Hodge','Steiner','hsteiner10@foxnews.com','M','647-104-1610'),(38,'Yvor','Severns','yseverns11@rediff.com','M','368-891-2592'),(39,'Carlyn','Bartosik','cbartosik12@alexa.com','F','492-166-9133'),(40,'Pierce','Attfield','pattfield13@gov.uk','M','737-459-8461'),(41,'Royal','Westphalen','rwestphalen14@ebay.com','M','928-271-6979'),(42,'Sallyanne','Bumfrey','sbumfrey15@youku.com','F','865-955-4169'),(43,'Alfie','Scaysbrook','ascaysbrook16@symantec.com','F','209-509-5309'),(44,'Noby','Clemoes','nclemoes17@indiegogo.com','M','680-451-8260'),(45,'Sharity','Blything','sblything18@multiply.com','F','368-353-4939'),(46,'Flss','Valencia','fvalencia19@ning.com','F','357-630-3280'),(47,'Mace','Skim','mskim1a@1und1.de','M','642-185-1247'),(48,'Maximo','Winfrey','mwinfrey1b@guardian.co.uk','M','630-351-3569'),(49,'Garrek','Whatmough','gwhatmough1c@barnesandnoble.com','M','733-539-2781'),(50,'Farleigh','Larkkem','flarkkem1d@wired.com','M','965-204-1923'),(51,'Marnia','Saffill','msaffill1e@google.pl','F','662-255-7418'),(52,'Reena','Delacroix','rdelacroix1f@whitehouse.gov','F','876-387-4510'),(53,'Leelah','O\'Haire','lohaire1g@unicef.org','F','523-799-8903'),(54,'Eydie','Salkeld','esalkeld1h@oakley.com','F','913-614-6492'),(55,'Isabelle','Legier','ilegier1i@prnewswire.com','F','747-584-6475'),(56,'Freida','Sterndale','fsterndale1j@accuweather.com','F','263-492-3910'),(57,'Claudian','Hardway','chardway1k@independent.co.uk','M','396-395-8216'),(58,'Hayward','Manie','hmanie1l@dell.com','M','765-280-2342'),(59,'Veronika','Larkby','vlarkby1m@uol.com.br','F','486-933-1223'),(60,'Golda','Gladyer','ggladyer1n@people.com.cn','F','690-497-9206'),(61,'Tanitansy','Philpotts','tphilpotts1o@soundcloud.com','F','728-736-8740'),(62,'Hank','Koomar','hkoomar1p@google.com.br','M','239-556-2339'),(63,'Pippo','Daine','pdaine1q@meetup.com','M','297-270-6662'),(64,'Marnia','Mockler','mmockler1r@trellian.com','F','904-952-1693'),(65,'Sandie','Kennaway','skennaway1s@noaa.gov','F','386-279-4197'),(66,'Jewelle','Powelee','jpowelee1t@uiuc.edu','F','990-827-6699'),(67,'Loleta','Wickersley','lwickersley1u@pen.io','F','414-960-7914'),(68,'Teodora','Jocelyn','tjocelyn1v@cbc.ca','F','875-103-6601'),(69,'Nelie','Bourley','nbourley1w@deliciousdays.com','F','847-175-3754'),(70,'Morena','Westberg','mwestberg1x@cbc.ca','F','458-568-6912'),(71,'George','Paton','gpaton1y@blinklist.com','M','288-917-4341'),(72,'Natividad','Wooder','nwooder1z@mediafire.com','F','916-621-4744'),(73,'Colby','Ettridge','cettridge20@altervista.org','M','881-425-1217'),(74,'Bertrand','O\'Crevan','bocrevan21@dell.com','M','489-596-3417'),(75,'Maggie','Chaucer','mchaucer22@rakuten.co.jp','F','296-627-0141'),(76,'Florrie','Baiden','fbaiden23@upenn.edu','F','351-479-6664'),(77,'Cecilla','Mulligan','cmulligan24@com.com','F','259-411-6648'),(78,'Pearce','Switzer','pswitzer25@amazonaws.com','M','232-443-3399'),(79,'Evy','Limeburn','elimeburn26@ucoz.com','F','433-969-6001'),(80,'Powell','Touzey','ptouzey27@istockphoto.com','M','203-102-8117'),(81,'Ford','Southgate','fsouthgate28@oakley.com','M','369-502-0762'),(82,'Tarra','Worge','tworge29@hatena.ne.jp','F','317-825-4374'),(83,'Izaak','Rock','irock2a@chronoengine.com','M','947-772-9739'),(84,'Lowell','Warrier','lwarrier2b@youku.com','M','335-908-4854'),(85,'Mile','Youings','myouings2c@w3.org','M','180-399-6050'),(86,'Garey','Cassells','gcassells2d@prlog.org','M','396-480-9411'),(87,'Frieda','Crickmore','fcrickmore2e@ca.gov','F','838-785-4425'),(88,'Trudey','Rosenberger','trosenberger2f@opera.com','F','318-676-1457'),(89,'Rodolph','Jillis','rjillis2g@jugem.jp','M','682-969-1641'),(90,'Shaylah','Hazzard','shazzard2h@ycombinator.com','F','553-670-4252'),(91,'Patricia','Blonfield','pblonfield2i@sitemeter.com','F','974-260-2555'),(92,'Clotilda','Dowyer','cdowyer2j@acquirethisname.com','F','718-723-9218'),(93,'Bernita','Barling','bbarling2k@gov.uk','F','923-795-9351'),(94,'Isaak','Lynnitt','ilynnitt2l@bloglovin.com','M','341-749-2435'),(95,'Thane','Yurkiewicz','tyurkiewicz2m@sciencedirect.com','M','725-748-0826'),(96,'Delia','Betz','dbetz2n@tumblr.com','F','586-845-6065'),(97,'Shirlene','Fulun','sfulun2o@desdev.cn','F','880-367-9693'),(98,'Packston','Ashborn','pashborn2p@deliciousdays.com','M','191-257-9062'),(99,'Brooke','Hews','bhews2q@bing.com','F','553-257-1705'),(100,'Nickie','Bourhill','nbourhill2r@goodreads.com','M','878-719-9117');
+INSERT INTO `Parent` VALUES (1,'Nessi','Elwill','nelwill0@yelp.com','F','334-497-5105'),(2,'Huberto','Bront','hbront1@is.gd','M','493-476-7856'),(3,'Jamesy','Russan','jrussan2@eventbrite.com','M','960-569-3399'),(4,'Gibb','MacLese','gmaclese3@ovh.net','M','115-449-9065'),(5,'Geri','Casaro','gcasaro4@stumbleupon.com','F','333-107-5931'),(6,'Karry','Wardle','kwardle5@addthis.com','F','121-125-8845'),(8,'Steffane','Kelle','skelle7@163.com','F','697-927-7784'),(10,'Phillipp','Atley','patley9@psu.edu','M','213-476-9951'),(12,'Haven','Matresse','hmatresseb@ibm.com','M','518-534-5972'),(13,'Alvan','Gouldstraw','agouldstrawc@engadget.com','M','464-582-0818'),(14,'Casandra','Agutter','cagutterd@de.vu','F','964-505-0714'),(15,'Gabie','Boniface','gbonifacee@ovh.net','F','484-770-0924'),(16,'Corly','Figgins','cfigginsf@smugmug.com','F','530-567-9324'),(22,'Gardy','Paunsford','gpaunsfordl@biglobe.ne.jp','M','703-626-1082'),(23,'Staford','Hulles','shullesm@businessweek.com','M','312-305-7851'),(24,'Mathias','De Leek','mdeleekn@163.com','M','151-765-8077'),(25,'Shannah','Cattroll','scattrollo@g.co','F','672-306-6719'),(26,'Haze','Mungin','hmunginp@blogtalkradio.com','M','211-697-0977'),(27,'Raeann','Dabinett','rdabinettq@livejournal.com','F','223-356-8594'),(28,'Shawna','Valasek','svalasekr@home.pl','F','618-595-3230'),(29,'Dorene','Houlison','dhoulisons@senate.gov','F','758-747-6264'),(30,'Chelsae','Quinet','cquinett@google.ca','F','129-879-4776'),(31,'Kliment','Brager','kbrageru@friendfeed.com','M','474-227-5124'),(32,'Tonia','Barehead','tbareheadv@bloomberg.com','F','935-148-6558'),(33,'Yule','Jent','yjentw@delicious.com','M','671-676-2464'),(36,'Jeannine','Joyce','jjoycez@weebly.com','F','825-488-2563'),(37,'Hodge','Steiner','hsteiner10@foxnews.com','M','647-104-1610'),(38,'Yvor','Severns','yseverns11@rediff.com','M','368-891-2592'),(39,'Carlyn','Bartosik','cbartosik12@alexa.com','F','492-166-9133'),(40,'Pierce','Attfield','pattfield13@gov.uk','M','737-459-8461'),(42,'Sallyanne','Bumfrey','sbumfrey15@youku.com','F','865-955-4169'),(43,'Alfie','Scaysbrook','ascaysbrook16@symantec.com','F','209-509-5309'),(45,'Sharity','Blything','sblything18@multiply.com','F','368-353-4939'),(46,'Flss','Valencia','fvalencia19@ning.com','F','357-630-3280'),(48,'Maximo','Winfrey','mwinfrey1b@guardian.co.uk','M','630-351-3569'),(49,'Garrek','Whatmough','gwhatmough1c@barnesandnoble.com','M','733-539-2781'),(50,'Farleigh','Larkkem','flarkkem1d@wired.com','M','965-204-1923'),(52,'Reena','Delacroix','rdelacroix1f@whitehouse.gov','F','876-387-4510'),(54,'Eydie','Salkeld','esalkeld1h@oakley.com','F','913-614-6492'),(55,'Isabelle','Legier','ilegier1i@prnewswire.com','F','747-584-6475'),(56,'Freida','Sterndale','fsterndale1j@accuweather.com','F','263-492-3910'),(57,'Claudian','Hardway','chardway1k@independent.co.uk','M','396-395-8216'),(58,'Hayward','Manie','hmanie1l@dell.com','M','765-280-2342'),(59,'Veronika','Larkby','vlarkby1m@uol.com.br','F','486-933-1223'),(60,'Golda','Gladyer','ggladyer1n@people.com.cn','F','690-497-9206'),(62,'Hank','Koomar','hkoomar1p@google.com.br','M','239-556-2339'),(63,'Pippo','Daine','pdaine1q@meetup.com','M','297-270-6662'),(64,'Marnia','Mockler','mmockler1r@trellian.com','F','904-952-1693'),(66,'Jewelle','Powelee','jpowelee1t@uiuc.edu','F','990-827-6699'),(67,'Loleta','Wickersley','lwickersley1u@pen.io','F','414-960-7914'),(68,'Teodora','Jocelyn','tjocelyn1v@cbc.ca','F','875-103-6601'),(69,'Nelie','Bourley','nbourley1w@deliciousdays.com','F','847-175-3754'),(72,'Natividad','Wooder','nwooder1z@mediafire.com','F','916-621-4744'),(74,'Bertrand','O\'Crevan','bocrevan21@dell.com','M','489-596-3417'),(75,'Maggie','Chaucer','mchaucer22@rakuten.co.jp','F','296-627-0141'),(77,'Cecilla','Mulligan','cmulligan24@com.com','F','259-411-6648'),(79,'Evy','Limeburn','elimeburn26@ucoz.com','F','433-969-6001'),(80,'Powell','Touzey','ptouzey27@istockphoto.com','M','203-102-8117'),(81,'Ford','Southgate','fsouthgate28@oakley.com','M','369-502-0762'),(83,'Izaak','Rock','irock2a@chronoengine.com','M','947-772-9739'),(84,'Lowell','Warrier','lwarrier2b@youku.com','M','335-908-4854'),(85,'Mile','Youings','myouings2c@w3.org','M','180-399-6050'),(86,'Garey','Cassells','gcassells2d@prlog.org','M','396-480-9411'),(87,'Frieda','Crickmore','fcrickmore2e@ca.gov','F','838-785-4425'),(88,'Trudey','Rosenberger','trosenberger2f@opera.com','F','318-676-1457'),(89,'Rodolph','Jillis','rjillis2g@jugem.jp','M','682-969-1641'),(90,'Shaylah','Hazzard','shazzard2h@ycombinator.com','F','553-670-4252'),(92,'Clotilda','Dowyer','cdowyer2j@acquirethisname.com','F','718-723-9218'),(93,'Bernita','Barling','bbarling2k@gov.uk','F','923-795-9351'),(94,'Isaak','Lynnitt','ilynnitt2l@bloglovin.com','M','341-749-2435'),(97,'Shirlene','Fulun','sfulun2o@desdev.cn','F','880-367-9693');
 /*!40000 ALTER TABLE `Parent` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `parents_with_multiple_children`
+--
+
+DROP TABLE IF EXISTS `parents_with_multiple_children`;
+/*!50001 DROP VIEW IF EXISTS `parents_with_multiple_children`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `parents_with_multiple_children` AS SELECT 
+ 1 AS `parentID`,
+ 1 AS `numStudents`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `Student`
@@ -292,6 +317,42 @@ SET character_set_client = @saved_cs_client;
 --
 
 --
+-- Final view structure for view `all_parents`
+--
+
+/*!50001 DROP VIEW IF EXISTS `all_parents`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `all_parents` AS select `parent`.`parentID` AS `parentID` from `parent` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `parents_with_multiple_children`
+--
+
+/*!50001 DROP VIEW IF EXISTS `parents_with_multiple_children`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `parents_with_multiple_children` AS select `student`.`parentID` AS `parentID`,count(0) AS `numStudents` from `student` group by `student`.`parentID` having (count(0) > 1) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `yearwithtotalstudents`
 --
 
@@ -318,4 +379,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-28 21:28:47
+-- Dump completed on 2024-03-29 10:46:15

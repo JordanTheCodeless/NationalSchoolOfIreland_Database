@@ -19,7 +19,12 @@ JOIN faculty f ON e.faculty = f.faculty
 SET e.facultyID = f.facultyID;
 
 SET SQL_SAFE_UPDATES = 1;
-
-select * from year;
-use primaryschool;
-select * from fees;
+# Here i created a simple view to find the students that had no associated parents and deleted the information as it is not necessary
+CREATE VIEW All_Parents AS
+SELECT parentID
+FROM Parent;
+# Here is where I found where the parentID values are null within students parentID
+SELECT a.parentID
+FROM All_Parents a
+LEFT JOIN Students s ON a.parentID = s.parentID
+WHERE s.parentID IS NULL;
