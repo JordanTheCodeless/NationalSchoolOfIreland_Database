@@ -1,12 +1,12 @@
-/*THESE ARE JORDAN'S QUERIES*/
-
-# Author Jordan Carthy
+#Jordans Queries
+#Author Jordan Carthy
+use primaryschool;
 #First query
 SELECT y.yearID, COUNT(s.studentID) AS TotalStudents
 FROM Year y
 LEFT JOIN Student s ON y.yearID = s.yearID
 GROUP BY y.yearID;
-# Here I will create the view with the information I have just gathered
+#Here I will create the view with the information I have just gathered
 CREATE VIEW YearWithTotalStudents AS
 SELECT y.yearID, COUNT(s.studentID) AS TotalStudents
 FROM Year y
@@ -24,6 +24,7 @@ SET e.facultyID = f.facultyID;
 CREATE VIEW All_Parents AS
 SELECT parentID
 FROM Parent;
+SELECT * FROM All_Parents;
 # Here is where I found where the parentID values are null within students parentID
 SELECT a.parentID
 FROM All_Parents a
@@ -36,10 +37,11 @@ SELECT parentID, COUNT(*) AS numStudents
 FROM Student
 GROUP BY parentID
 HAVING COUNT(*) > 1;
+SELECT * FROM Parents_With_Multiple_Children;
 
 # Calculated total hours for employees working
 SELECT
-    employeeId,
+    employeeId, employeeFirstName,
     (
         COALESCE(mondayHours, 0) +
         COALESCE(tuesdayHours, 0) +
@@ -52,10 +54,9 @@ SELECT
 FROM
     hours;
 
-    
 /*THESE ARE ANDRÉ'S QUERIES*/
 
-/*This querry  has a where clasue to find all the teachers with a salary greater than 30,000 €*/
+/*This query  has a where clause to find all the teachers with a salary greater than 30,000 €*/
 
 SELECT employeeID, employeeFirstName, employeeLastName, salary FROM employees WHERE position = 'teacher' AND salary > 30000;
 
@@ -78,7 +79,7 @@ JOIN Student ON Year.yearID = Student.yearID GROUP BY Year.yearID HAVING COUNT(S
 
 /*THESE ARE GREG'S QUERIES*/
 
-/*Query with a where clasue to find all the female employees that work in administration*/
+/*Query with a where clause to find all the female employees that work in administration*/
 
 SELECT employeeID, employeeFirstName, employeeLastName
 FROM employees WHERE gender = 'F' AND faculty = 'administration';

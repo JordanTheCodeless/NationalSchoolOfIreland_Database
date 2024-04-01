@@ -1,4 +1,5 @@
 # Author Jordan Carthy
+use primaryschool;
 #First query
 SELECT y.yearID, COUNT(s.studentID) AS TotalStudents
 FROM Year y
@@ -22,6 +23,7 @@ SET e.facultyID = f.facultyID;
 CREATE VIEW All_Parents AS
 SELECT parentID
 FROM Parent;
+SELECT * FROM All_Parents;
 # Here is where I found where the parentID values are null within students parentID
 SELECT a.parentID
 FROM All_Parents a
@@ -34,10 +36,11 @@ SELECT parentID, COUNT(*) AS numStudents
 FROM Student
 GROUP BY parentID
 HAVING COUNT(*) > 1;
+SELECT * FROM Parents_With_Multiple_Children;
 
 # Calculated total hours for employees working
 SELECT
-    employeeId,
+    employeeId, employeeFirstName,
     (
         COALESCE(mondayHours, 0) +
         COALESCE(tuesdayHours, 0) +
